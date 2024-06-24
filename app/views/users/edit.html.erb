@@ -1,0 +1,14 @@
+<!--設定画面 -->
+<h1>User info</h1>
+<%= form_with model: @book, url: '/books', method: :post do |f| %>
+
+  <p>Name</p>
+  <%= f.text_field :title %>
+  
+  <p>Image</p>
+  <%= f.text_field :image, accept: "image/*" %>
+
+  <p>Introduction</p>
+  <%= f.text_area :body %>
+  <%= f.submit 'Update User' %>
+<% end %>

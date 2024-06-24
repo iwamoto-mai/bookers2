@@ -1,0 +1,17 @@
+<div>
+  <%= image_tag @book.get_image %> 
+  
+  <p>投稿ユーザー画像：
+   <% if @bookt.image.attached? %>
+     <%= image_tag @book.image, size: "300x300" %>
+   <% else %>
+     <%= image_tag 'no_image', size: "300x300" %>
+   <% end %>
+   
+  <p>title：<%= book.title %></p>
+  <p>opinion：<%= book.caption %></p>
+  <% if @post_image.user == current_user %>
+    <%= link_to "削除", post_image_path(@post_image), method: :delete %>
+  <% end %>
+</div>
+
