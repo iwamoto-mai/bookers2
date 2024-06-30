@@ -9,6 +9,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.page(params[:page])
+    @book =Book.page(params[:page])
   end
 
   def create
@@ -24,9 +25,13 @@ class BooksController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @books = @user.books.page(params[:page])
+    @book =Book.find(params[:id])
   end
-
+  
+  def destroy
+    #@book
+  end
+  
   private
 
   def book_params

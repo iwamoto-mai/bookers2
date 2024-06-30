@@ -9,13 +9,13 @@ class UsersController < ApplicationController
   
   def index
     @books = Book.page(params[:page])
-    @book = Book.new(book_params)
-    @book.user_id = current_user.id
-    
-    if @book.save
-      redirect_to book_path(@book.id)
-    else
-      render :index
-    end
+    @book = Book.new
   end
+  
+  private
+
+  def user_params
+    params.require(:book).parmit(:image, :title, :body)
+  end
+  
 end

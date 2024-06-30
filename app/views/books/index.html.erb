@@ -1,21 +1,16 @@
 <h1>User info</h1>
-<% @books.each do |book| %>
+
 
   <div>
-   <%= link_to book_path(book.id) do %>
-     <%= image_tag book.get_image %>
-   <% end %>
+   <%= link_to book_path(@book.id) do %>
+    <%= image_tag  @book.user.get_profile_image(100,100)%>
+  <% end %>
 
-  <p>投稿ユーザー画像：
-   <% if list.image.attached? %>
-     <%= image_tag list.image, size: "200x200" %>
-   <% else %>
-     <%= image_tag 'no_image', size: "200x200" %>
-   <% end %>
-  <p>name：<%= book.user.name %></p>
-  <p>introduction：<%= book.caption %></p>
+  
+  <p>name :<%= book.user.name %></p>
+  <p>introduction <%= book.caption %></p>
 </div>
-<% end %>　
+　
 
 　 
 <h1>New book</h1>

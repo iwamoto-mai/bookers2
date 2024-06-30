@@ -1,18 +1,13 @@
 <p>Welcome! You have signed up successfully.</p>
 <h1>User info</h1>
-<% @books.each do |book| %>
-
 <div>
-  <%= link_to book_path(book.id) do %>
-    <%= image_tag book.get_image %>
+  <%= link_to book_path(@book.id) do %>
+    <%= image_tag  @book.user.get_profile_image(100,100)%>
   <% end %>
 
-  <p>投稿ユーザー画像：<%= image_tag book.user.get_profile_image(100,100) %></p>
-　<p>name：<%= book.user.name %></p>
-  <p>introduction：<%= book.caption %></p>
-</div>
-<% end %>
-  
+　<p>name:<%= @book.user.name %></p>
+  <p>introduction:<%= @book.user.introduction %></p>
+
 <h1>New book</h1>
 
 <% if @book.errors.any? %>
@@ -31,7 +26,7 @@
 
   <p>Opinion</p>
   <%= f.text_area :body %>
-  
+
 
   <%= f.submit 'Create Book' %>
-<% end %> 
+<% end %>
